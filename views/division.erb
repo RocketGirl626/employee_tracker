@@ -1,18 +1,9 @@
-<h1>Divisions List</h1>
+<h1>Update Division:<%= @division.name() %></h1>
 
-<p>Here are all your Divisions:</p>
-
-<ul>
-<% @division.each() do |division| %>
-  <li><%= division.name %> <a href="/tasks/<%= division.id() %> /edit">Update this Division name</a></li>
-<% end %>
-</ul>
-
-<p>Add a new Division</p>
-
-<form action="/divisions" method="post">
-  <label for="name">Description</label>
+<form action="/divisions/ <%= @division.id() %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <label for="name">Rename Your Division:</label>
   <input id="name" name="name" type="text">
 
-  <button type="submit">Add Division</button>
+  <button type="submit">Update</button>
 </form>
